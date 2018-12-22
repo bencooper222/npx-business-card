@@ -89,7 +89,7 @@ const output =
   newline +
   webing +
   newline +
-  newline + // data.labelWeb + data.web
+  // newline + // data.labelWeb + data.web
   carding; // data.labelCard + data.npx
 
 fs.writeFileSync(
