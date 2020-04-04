@@ -15,8 +15,10 @@ const options = {
 
 const content = {
   name: 'Benjamin Cooper',
+  job: 'Convoy',
   website: 'https://benc.io',
   tag: 'I do a lot of things, hopefully some of them are useful.',
+  blog: 'https://blog.benc.io',
   twitter: 'bcoops222',
   github: 'bencooper222',
   keybase: 'benc222',
@@ -29,9 +31,11 @@ const content = {
 const descriptiveSpacing = ' '.repeat(4);
 const data = {
   name: chalk.white(`${content.spacing}${content.name}`),
-  handle: chalk.white(content.website),
+  handle: chalk.gray(content.website),
   // work: chalk.white('Senior Cloud Developer Advocate at Microsoft'),
   // opensource: chalk.white('Node.js Community Committee ') + chalk.green('⬢'),
+  blog: chalk.yellow(content.blog),
+  work: chalk.white(content.job),
   twitter: chalk.gray('https://twitter.com/') + chalk.yellow(content.twitter),
   // npm: chalk.gray('https://npmjs.com/') + chalk.red('~bnb'),
   github: chalk.gray('https://github.com/') + chalk.yellow(content.github),
@@ -42,20 +46,23 @@ const data = {
   npx: chalk.red('npx') + ' ' + chalk.white(content.npx),
   // labelWork: chalk.white.bold('       Work:'),
   // labelOpenSource: chalk.white.bold('Open Source:'),
+  labelWork: chalk.gray('     (About to be) SWE at:'),
   labelTwitter: chalk.white.bold('    Twitter:'),
   // labelnpm: chalk.white.bold('        npm:'),
   labelGitHub: chalk.white.bold('     GitHub:'),
   labelKeybase: chalk.white.bold('    Keybase:'),
   labelLinkedIn: chalk.white.bold('   LinkedIn:'),
   labelWeb: chalk.white.bold('        Web:'),
+  labelBlog: chalk.white.bold('       Blog:'),
   labelCard: chalk.white.bold('       Card:'),
 };
 
 // Actual strings we're going to output
 const newline = '\n';
 const heading = `${data.name} / ${data.handle}`;
-// const working = `${data.labelWork}  ${data.work}`;
+const working = `${data.labelWork} ${data.work}`;
 // const opensourcing = `${data.labelOpenSource}  ${data.opensource}`;
+const blogging = `${data.labelBlog} ${data.blog}`;
 const twittering = `${data.labelTwitter}  ${data.twitter}`;
 // const npming = `${data.labelnpm}  ${data.npm}`;
 const githubing = `${data.labelGitHub}  ${data.github}`;
@@ -68,7 +75,7 @@ const carding = `${data.labelCard}  ${data.npx}`;
 const output =
   heading + // data.name + data.handle
   newline +
-  `${content.spacing}"${content.tag}"` +
+  working +
   newline + // Add one whole blank line
   newline +
   // working +
@@ -76,6 +83,8 @@ const output =
   // opensourcing +
   // newline +
   // newline + // data.labelOpenSource + data.opensource
+  blogging +
+  newline +
   twittering +
   // newline + // data.labelTwitter + data.twitter
   // npming +
@@ -90,7 +99,11 @@ const output =
   webing +
   newline +
   // newline + // data.labelWeb + data.web
-  carding; // data.labelCard + data.npx
+  carding +
+  newline +
+  newline +
+  newline +
+  `${' '.repeat(3)}"${content.tag}"`; // data.labelCard + data.npx
 
 fs.writeFileSync(
   path.join(__dirname, 'bin/output'),
