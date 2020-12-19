@@ -31,7 +31,7 @@ const content = {
 const descriptiveSpacing = ' '.repeat(4);
 const data = {
   name: chalk.white(`${content.spacing}${content.name}`),
-  handle: chalk.gray(content.website),
+  handle: chalk.yellow(content.website),
   // work: chalk.white('Senior Cloud Developer Advocate at Microsoft'),
   // opensource: chalk.white('Node.js Community Committee ') + chalk.green('⬢'),
   blog: chalk.yellow(content.blog),
@@ -46,7 +46,7 @@ const data = {
   npx: chalk.red('npx') + ' ' + chalk.white(content.npx),
   // labelWork: chalk.white.bold('       Work:'),
   // labelOpenSource: chalk.white.bold('Open Source:'),
-  labelWork: chalk.gray('     (About to be) SWE at:'),
+  labelWork: chalk.gray('     I work on developer tools at:'),
   labelTwitter: chalk.white.bold('    Twitter:'),
   // labelnpm: chalk.white.bold('        npm:'),
   labelGitHub: chalk.white.bold('     GitHub:'),
@@ -62,7 +62,7 @@ const newline = '\n';
 const heading = `${data.name} / ${data.handle}`;
 const working = `${data.labelWork} ${data.work}`;
 // const opensourcing = `${data.labelOpenSource}  ${data.opensource}`;
-const blogging = `${data.labelBlog} ${data.blog}`;
+const blogging = `${data.labelBlog}  ${data.blog}`;
 const twittering = `${data.labelTwitter}  ${data.twitter}`;
 // const npming = `${data.labelnpm}  ${data.npm}`;
 const githubing = `${data.labelGitHub}  ${data.github}`;
@@ -83,8 +83,7 @@ const output =
   // opensourcing +
   // newline +
   // newline + // data.labelOpenSource + data.opensource
-  blogging +
-  newline +
+
   twittering +
   // newline + // data.labelTwitter + data.twitter
   // npming +
@@ -97,6 +96,8 @@ const output =
   newline + // data.labelLinkedIn + data.linkedin
   newline +
   webing +
+  newline +
+  blogging +
   newline +
   // newline + // data.labelWeb + data.web
   carding +
